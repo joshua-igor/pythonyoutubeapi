@@ -59,8 +59,6 @@ def get_authenticated_service():
 
 def initialize_upload(youtube, options):
   tags = None
-  # if options.keywords:
-  #   tags = options.keywords.split(',')
 
   body=dict(
     snippet=dict(
@@ -130,25 +128,10 @@ def resumable_upload(request):
       time.sleep(sleep_seconds)
 
 if __name__ == '__main__':
-  # parser = argparse.ArgumentParser()
-  # parser.add_argument('--file', required=True, help='Video file to upload')
-  # parser.add_argument('--title', help='Video title', default='Test Title')
-  # parser.add_argument('--description', help='Video description',
-  #   default='Test Description')
-  # parser.add_argument('--category', default='22',
-  #   help='Numeric video category. ' +
-  #     'See https://developers.google.com/youtube/v3/docs/videoCategories/list')
-  # parser.add_argument('--keywords', help='Video keywords, comma separated',
-  #   default='')
-  # parser.add_argument('--privacyStatus', choices=VALID_PRIVACY_STATUSES,
-  #   default='private', help='Video privacy status.')
-  # args = parser.parse_args()
 
   youtube = get_authenticated_service()
 
   try:
-    # initialize_upload(youtube, args)
-
     # Recursively searches for .mp4 files in the specified directory and its subdirectories.
     # Calls the initialize_upload method for each .mp4 file found.
     for dirpath, dirnames, filenames in os.walk(VIDEOS_PATH):
